@@ -33,13 +33,14 @@ main section.categories-show {
       a {
         text-decoration: none;
       }
-      font-family: "Montserrat";
+      font-family: 'Montserrat';
       width: 100%;
       position: relative;
       text-align: center;
       border-radius: 0.25em;
       border: 0.1em solid rgba(0, 130, 29, 0.3);
-      box-shadow: rgba(0, 130, 29, 0.16) 0px 3px 6px, rgba(0, 130, 29, 0.23) 0px 3px 6px;
+      box-shadow: rgba(0, 130, 29, 0.16) 0px 3px 6px,
+        rgba(0, 130, 29, 0.23) 0px 3px 6px;
       // transition: opacity 300ms linear;
 
       &:hover {
@@ -52,6 +53,12 @@ main section.categories-show {
         button {
           background: white;
           color: rgba(0, 130, 29, 0.7);
+        }
+
+        .soldout {
+          background: rgba(224, 14, 14, 0.8);
+          color: white;
+          cursor: default;
         }
       }
       img {
@@ -69,7 +76,7 @@ main section.categories-show {
         align-items: center;
         color: rgba(0, 130, 29, 0.7);
         font-weight: 700;
-        font-family: "Montserrat";
+        font-family: 'Montserrat';
         span {
           font-size: 0.8em;
         }
