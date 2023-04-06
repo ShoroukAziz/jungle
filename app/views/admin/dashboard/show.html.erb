@@ -1,2 +1,38 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<section class="admin-products-index">
+
+  <header class="page-header">
+    <h1>Admin &raquo; Dashboard</h1>
+  </header>
+
+  <div class="well">
+
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <th scope="row">  <%= link_to "Products Count", %i[admin products] %></th>
+          <td><%= @products_count %> </td> 
+        </tr>
+
+        <tr>
+          <th scope="row">Total Items in Stock</th>
+          <td><%= @items_in_stock %></td>
+        </tr>
+
+        <tr>
+          <th scope="row">Categories Count</th>
+          <td> <%= @categories_count %></td>
+        </tr>
+
+       <tr>
+          <th scope="row">Orders Count</th>
+          <td> <%= @orders_count %></td>
+        </tr>
+               <tr>
+          <th scope="row">Orders Value</th>
+          <td> <%= humanized_money_with_symbol @orders_value %></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+</section>
