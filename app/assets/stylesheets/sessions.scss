@@ -1,0 +1,40 @@
+.user-login {
+  width: 40%;
+  margin: 0 auto;
+
+  .page-header {
+    margin: 1.5em 0;
+  }
+
+  form {
+    background-color: #f0f0f0;
+    padding: 15%;
+    border: 1px solid #c8c8c8;
+    border-radius: 2%;
+  }
+
+  .signup-btn {
+    width: 100%;
+    margin: 5% 0;
+  }
+
+  .well {
+    text-align: center;
+  }
+
+  .has-icon .form-control {
+    padding-left: 2.375rem;
+  }
+
+  .has-icon .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+  }
+}
