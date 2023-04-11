@@ -1,11 +1,12 @@
 require "rails_helper"
 
 RSpec.describe Product, type: :model do
-  before(:all) do
+  before(:each) do
     @category = Category.create name: "trees"
     @name = "Mango Tree"
     @quantity = 4
     @price = 500
+    @category_name = "Trees"
   end
 
   describe "Validations" do
