@@ -84,8 +84,8 @@ RSpec.describe User, type: :model do
       end
       context "given an email that already exists (case insensitive)" do
         it "shouldn't save and raises a unique constraint error" do
-          user_1 = User.new({ first_name: @first_name, last_name: @last_name, email: @email, password: @password, password_confirmation: @password_confirmation })
-          user_1.save
+          user_1 = User.create({ first_name: @first_name, last_name: @last_name, email: @email, password: @password, password_confirmation: @password_confirmation })
+
           user_2 = User.new({ first_name: @first_name, last_name: @last_name, email: @email, password: @password, password_confirmation: @password_confirmation })
           expect { user_2.save }.to raise_error(ActiveRecord::RecordNotUnique)
 
@@ -97,12 +97,9 @@ RSpec.describe User, type: :model do
   end
 
   describe ".authenticate_with_credentials" do
-    before(:each) do
-      @user = User.new({ first_name: @first_name, last_name: @last_name, email: @email, password: @password, password_confirmation: @password_confirmation })
-      @user.save
-    end
     context "Given a correct email and password" do
       it "Should authinticate the user and returns the correct user" do
+        @user = User.create({ first_name: @first_name, last_name: @last_name, email: @email, password: @password, password_confirmation: @password_confirmation })
         authinticated_user_id = User.authenticate_with_credentials(@email, @password).id
         expect(authinticated_user_id).to equal @user.id
       end
@@ -110,8 +107,7 @@ RSpec.describe User, type: :model do
 
     context "Given a correct email in differend case" do
       it "Should authinticate the user and returns the correct user" do
-        @user = User.new({ first_name: @first_name, last_name: @last_name, email: "eXample@domain.COM", password: @password, password_confirmation: @password_confirmation })
-        @user.save
+        @user = User.create({ first_name: @first_name, last_name: @last_name, email: "eXample@domain.COM", password: @password, password_confirmation: @password_confirmation })
         authinticated_user_id = User.authenticate_with_credentials("EXAMPLe@DOMAIN.CoM", @password).id
         expect(authinticated_user_id).to equal @user.id
       end
@@ -119,8 +115,7 @@ RSpec.describe User, type: :model do
 
     context "Given a correct email with white spaces" do
       it "Should authinticate the user and returns the correct user" do
-        @user = User.new({ first_name: @first_name, last_name: @last_name, email: "example@domain.com", password: @password, password_confirmation: @password_confirmation })
-        @user.save
+        @user = User.create({ first_name: @first_name, last_name: @last_name, email: "example@domain.com", password: @password, password_confirmation: @password_confirmation })
         authinticated_user_id = User.authenticate_with_credentials(" example@domain.com ", @password).id
         expect(authinticated_user_id).to equal @user.id
       end
