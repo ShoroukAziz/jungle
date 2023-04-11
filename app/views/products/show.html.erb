@@ -4,7 +4,7 @@
   </header>
 
   <article class="product-detail">
-    <%= image_tag @product.image.url, class: 'main-img' %>
+    <%= image_tag @product.image.url, class: "main-img" %>
     <div>
       <h1><%= @product.name %></h1>
       <p><%= @product.description %></p>
@@ -13,11 +13,11 @@
         <span><%= humanized_money_with_symbol @product.price %></span>
       </div>
       <div class="price">          
-        <%= button_to add_item_cart_path(product_id: @product.id), class: 'btn' , method: :post do %>
-          <%= fa_icon "shopping-cart", text: 'Add' %>
+        <%= button_to add_item_cart_path(product_id: @product.id), class: "btn", method: :post, disabled: @product.quantity == 0 do %>
+          <%= fa_icon "shopping-cart", text: "Add" %>
         <% end %>          
       </div>
     </div>
-  </article>
+    </article>
 
 </section>
