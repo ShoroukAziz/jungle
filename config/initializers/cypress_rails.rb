@@ -23,6 +23,15 @@ CypressRails.hooks.before_server_start do
     quantity: 18,
     price: 24.99,
   })
+
+  # Create a user to test logining in function
+  User.create!({
+    first_name: "Shorouk",
+    last_name: "Abdelaziz",
+    email: "example@email.com",
+    password: "123456",
+    password_confirmation: "123456",
+  })
 end
 
 CypressRails.hooks.after_transaction_start do
